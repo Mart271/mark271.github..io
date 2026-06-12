@@ -316,6 +316,58 @@ class TimelineProgress {
     }
 }
 
+class ContactForm {
+    constructor() {
+        this.serviceId  = 'service_ov7bips';
+        this.templateId = 'template_zak59ca';
+        this.publicKey  = 'D6g0ZORmvOjaDXYr9';
+        this.cmd    = document.getElementById('email-cmd');
+        this.wrap   = document.getElementById('email-form-wrap');
+        this.form   = document.getElementById('contact-form');
+        this.submit = document.getElementById('ef-submit');
+        this.status = document.getElementById('ef-status');
+        this.isOpen = false;
+    }
+    init() {
+        const s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+        s.onload = () => emailjs.init({ publicKey: this.publicKey });
+        document.head.appendChild(s);
+
+        this.cmd.addEventListener('click', () => this.toggle());
+        this.cmd.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') this.toggle(); });
+        this.form.addEventListener('submit', e => this.send(e));
+    }
+    toggle() {
+        this.isOpen = !this.isOpen;
+        this.wrap.classList.toggle('open', this.isOpen);
+        this.cmd.setAttribute('aria-expanded', this.isOpen);
+        if (this.isOpen) setTimeout(() => this.wrap.querySelector('input').focus(), 460);
+    }
+    async send(e) {
+        e.preventDefault();
+        if (!this.form.checkValidity()) { this.form.reportValidity(); return; }
+        this.submit.disabled = true;
+        this.submit.textContent = 'Sending…';
+        this.setStatus('', '');
+        try {
+            await emailjs.sendForm(this.serviceId, this.templateId, this.form);
+            this.setStatus('Message sent!', 'success');
+            this.form.reset();
+            setTimeout(() => this.toggle(), 2200);
+        } catch {
+            this.setStatus('Failed — please try again.', 'error');
+        } finally {
+            this.submit.disabled = false;
+            this.submit.innerHTML = 'Send Message <span>▸</span>';
+        }
+    }
+    setStatus(text, cls) {
+        this.status.textContent = text;
+        this.status.className = 'ef-status' + (cls ? ` ${cls}` : '');
+    }
+}
+
 class PortfolioApp {
     constructor() {
         this.reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -346,6 +398,7 @@ class PortfolioApp {
             new GlitchEffect().start();
         }
 
+        new ContactForm().init();
     }
 }
 

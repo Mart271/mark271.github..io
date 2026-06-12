@@ -548,14 +548,40 @@
             </div>
 
             <div class="cmd-menu">
-                <a class="glass cmd rv d1" href="mailto:marktagab0@gmail.com">
+                <div class="glass cmd rv d1" id="email-cmd" role="button" tabindex="0" aria-expanded="false">
                     <span class="wedge" aria-hidden="true"></span>
                     <span class="ci"><i>✉</i></span>
                     <span class="ct">
                         <h3>Email</h3><span>marktagab0@gmail.com</span>
                     </span>
                     <span class="go">▸</span>
-                </a>
+                </div>
+                <div class="email-form-wrap" id="email-form-wrap">
+                    <form id="contact-form" novalidate>
+                        <div class="ef-row">
+                            <div class="ef-field">
+                                <label for="ef-name">Name</label>
+                                <input id="ef-name" name="name" type="text" placeholder="Your name" required>
+                            </div>
+                            <div class="ef-field">
+                                <label for="ef-email">Email</label>
+                                <input id="ef-email" name="email" type="email" placeholder="your@email.com" required>
+                            </div>
+                        </div>
+                        <div class="ef-field">
+                            <label for="ef-title">Subject</label>
+                            <input id="ef-title" name="title" type="text" placeholder="What's this about?">
+                        </div>
+                        <div class="ef-field">
+                            <label for="ef-message">Message</label>
+                            <textarea id="ef-message" name="message" rows="4" placeholder="Your message..." required></textarea>
+                        </div>
+                        <div class="ef-actions">
+                            <button type="submit" class="btn btn-blue" id="ef-submit">Send Message <span>▸</span></button>
+                            <span class="ef-status" id="ef-status"></span>
+                        </div>
+                    </form>
+                </div>
                 <a class="glass cmd rv d2" href="https://www.linkedin.com/in/mark-tagab-25799218b/" target="_blank"
                     rel="noopener">
                     <span class="wedge" aria-hidden="true"></span>
