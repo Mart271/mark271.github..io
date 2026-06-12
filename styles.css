@@ -1185,7 +1185,7 @@ section {
 /* ============ PROJECTS ============ */
 .proj-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
   gap: clamp(22px, 3vw, 38px)
 }
 
@@ -1431,7 +1431,7 @@ section {
 /* ============ CERTIFICATIONS ============ */
 .cert-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 20px
 }
 
@@ -1629,5 +1629,101 @@ footer b {
 
   #sea {
     display: none
+  }
+}
+
+/* ============ iOS SAFE AREAS ============ */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  @media (max-width: 900px) {
+    #game-nav {
+      padding-bottom: calc(8px + env(safe-area-inset-bottom));
+    }
+    section {
+      padding-bottom: calc(120px + env(safe-area-inset-bottom));
+    }
+    footer {
+      padding-bottom: calc(120px + env(safe-area-inset-bottom));
+    }
+  }
+}
+
+/* ============ SMALL PHONES (≤480px) ============ */
+@media (max-width: 480px) {
+  /* hero — tighten left padding so name doesn't crowd the side strip */
+  .hero-left {
+    padding-left: clamp(58px, 16vw, 80px);
+  }
+
+  /* hero name — slightly smaller on tiny screens */
+  .hero-name {
+    font-size: clamp(2.2rem, 11vw, 3rem);
+  }
+
+  /* role chips — tighter */
+  .role-chip {
+    font-size: .68rem;
+    padding: 7px 14px;
+  }
+
+  .hero-roles {
+    gap: 8px;
+    margin: 22px 0 30px;
+  }
+
+  /* press start — full-width feel on small screens */
+  #press-start {
+    font-size: 1rem;
+    padding: 13px 26px;
+  }
+
+  /* section echo text — prevent bleed */
+  .echo {
+    font-size: clamp(2.8rem, 16vw, 5rem);
+  }
+
+  /* blade header — reduce rotate so it doesn't clip */
+  .blade {
+    transform: skew(var(--skew)) rotate(-1.5deg);
+  }
+
+  /* timeline — tighten up */
+  .tl-item {
+    padding: 0 0 32px 36px;
+  }
+
+  .tl-date .big {
+    font-size: 1rem;
+  }
+
+  .tl-card {
+    padding: 16px 18px;
+  }
+
+  /* project card body — reduce padding */
+  .proj-body {
+    padding: 18px 18px 20px;
+  }
+
+  /* cert cards — tighter */
+  .cert {
+    padding: 14px 16px;
+    gap: 14px;
+  }
+
+  .cert .medal {
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+
+  /* contact cmd — tighten padding */
+  .cmd {
+    padding: 16px 20px;
+    gap: 14px;
+  }
+
+  .cmd .ci {
+    width: 38px;
+    height: 38px;
   }
 }
