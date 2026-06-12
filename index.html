@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARK RAINIER TAGAB — Portfolio</title>
+    <meta name="description"
+        content="Mark Rainier Tagab — Computer Science student, backend developer, cybersecurity enthusiast.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- LOADER -->
+    <div id="loader" aria-hidden="true">
+        <div class="l-wedge"></div>
+        <div class="l-word">Now Loading<i>...</i></div>
+        <div class="l-bar"><i id="l-fill"></i></div>
+        <div class="l-tip">Establishing connection to the velvet web</div>
+    </div>
+
+    <!-- TRANSITION WIPE -->
+    <div id="wipe" aria-hidden="true">
+        <div class="w w1"></div>
+        <div class="w w2"></div>
+    </div>
+
+    <!-- AMBIENT LAYERS -->
+    <canvas id="sea" aria-hidden="true"></canvas>
+    <div class="caustics" aria-hidden="true"></div>
+    <div class="shard-field" aria-hidden="true">
+        <div class="shard"></div>
+        <div class="shard"></div>
+        <div class="shard"></div>
+        <div class="shard"></div>
+    </div>
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- CURSOR -->
+    <div id="cursor" aria-hidden="true"></div>
+    <div id="cursor-ring" aria-hidden="true"></div>
+
+    <!-- NAV -->
+    <nav id="game-nav" aria-label="Main menu">
+        <a href="#profile"><span class="tick"></span>Profile</a>
+        <a href="#skills"><span class="tick"></span>Skills</a>
+        <a href="#projects"><span class="tick"></span>Projects</a>
+        <a href="#experience"><span class="tick"></span>Experience</a>
+        <a href="#certifications"><span class="tick"></span>Certifications</a>
+        <a href="#contact"><span class="tick"></span>Contact</a>
+    </nav>
+
+    <main>
+
+        <!-- ================= HERO ================= -->
+        <section id="hero">
+            <div class="side-strip" aria-hidden="true"><span>Main Menu</span></div>
+
+            <div class="hero-left">
+                <span class="hero-tag rv">Portfolio</span>
+                <h1 class="hero-name">
+                    <span class="ln ln1 rv d1 glitchable" data-text="MARK">MARK</span>
+                    <span class="ln ln2 rv d2">RAINIER</span>
+                    <span class="ln rv d3"><span class="ln3 glitchable" data-text="TAGAB">TAGAB</span></span>
+                </h1>
+                <div class="hero-roles">
+                    <span class="role-chip rv d2">Computer Science Student</span>
+                    <span class="role-chip rv d3">Backend Developer</span>
+                    <span class="role-chip rv d4">Cybersecurity Enthusiast</span>
+                </div>
+                <button id="press-start" class="rv d4" data-sfx="confirm">
+                    Press Start <span class="arrow">▸▸</span>
+                </button>
+            </div>
+
+            <div class="hero-right" aria-hidden="true">
+                <div class="avatar-stage">
+                    <!-- glow + ring backdrop -->
+                    <svg class="avatar-rings" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <defs>
+                            <radialGradient id="glow" cx="50%" cy="46%" r="50%">
+                                <stop offset="0" stop-color="#1f7bff" stop-opacity=".55" />
+                                <stop offset=".55" stop-color="#0a55f0" stop-opacity=".22" />
+                                <stop offset="1" stop-color="#0a55f0" stop-opacity="0" />
+                            </radialGradient>
+                        </defs>
+                        <circle cx="260" cy="250" r="250" fill="url(#glow)" />
+                        <circle cx="260" cy="250" r="206" fill="none" stroke="#27e3ff" stroke-opacity=".3"
+                            stroke-width="1.5" stroke-dasharray="10 14">
+                            <animateTransform attributeName="transform" type="rotate" from="0 260 250" to="360 260 250"
+                                dur="40s" repeatCount="indefinite" />
+                        </circle>
+                        <circle cx="260" cy="250" r="172" fill="none" stroke="#1f7bff" stroke-opacity=".4"
+                            stroke-width="1" />
+                        <polygon points="60,300 92,288 84,330" fill="#27e3ff" opacity=".6">
+                            <animateTransform attributeName="transform" type="translate" values="0 0;0 -16;0 0" dur="5s"
+                                repeatCount="indefinite" />
+                        </polygon>
+                        <polygon points="430,180 462,172 452,216" fill="#1f7bff" opacity=".6">
+                            <animateTransform attributeName="transform" type="translate" values="0 0;0 -22;0 0"
+                                dur="6.5s" repeatCount="indefinite" />
+                        </polygon>
+                        <polygon points="410,400 440,390 434,428" fill="#cfeeff" opacity=".45">
+                            <animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 0"
+                                dur="4.2s" repeatCount="indefinite" />
+                        </polygon>
+                    </svg>
+                    <img class="avatar-img" src="avatar.png" alt="" decoding="async">
+                </div>
+            </div>
+
+            <div class="hero-hints" aria-hidden="true">
+                <span><b>✓</b>Confirm</span>
+                <span><b>✕</b>Close</span>
+            </div>
+        </section>
+
+        <!-- ================= PROFILE ================= -->
+        <section id="profile">
+            <div class="blade-wrap rv">
+                <span class="echo" aria-hidden="true">Profile</span>
+                <div class="blade">
+                    <h2>Pro<b>file</b></h2>
+                </div>
+                <br><span class="blade-sub">Persona data — the one behind the code</span>
+            </div>
+
+            <div class="profile-grid">
+                <div class="photo-frame rv from-left">
+                    <div class="frame-bg" aria-hidden="true"></div>
+                    <div class="ph">
+
+                        <img src="photo.jpg" alt="Mark Rainier Tagab">
+                    </div>
+                    <div class="tag-id">ID — M.R. Tagab</div>
+                </div>
+
+                <div class="profile-cards">
+                    <div class="glass p-card rv from-right d1">
+                        <h3>About Me</h3>
+                        <p>Third-year Computer Science student at LPU Cavite who genuinely enjoys figuring out how
+                            things work. I like building projects, learning new tools, and diving into topics like
+                            backend development and cybersecurity. Still a lot to learn — and that's exactly what keeps
+                            me going.</p>
+                    </div>
+                    <div class="glass p-card rv from-right d2">
+                        <h3>Education</h3>
+                        <p><strong>Bachelor of Science in Computer Science</strong></p>
+                        <div class="edu-line"><span class="yr">2023 → Present</span><span>Lyceum of the Philippines
+                                University – Cavite</span></div>
+                        <p style="margin-top:10px">Third year, ongoing — Expected May 2027. Focus areas: data
+                            structures, algorithms, network security, machine learning, and web development.</p>
+                    </div>
+                    <div class="glass p-card rv from-right d3">
+                        <h3>Career Goal</h3>
+                        <p>I want to grow as a developer and eventually work in backend or security engineering. For
+                            now I'm focused on learning as much as I can, building real projects, and getting better
+                            every day.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SKILLS ================= -->
+        <section id="skills">
+            <div class="blade-wrap rv">
+                <span class="echo" aria-hidden="true">Stack</span>
+                <div class="blade">
+                    <h2>Tech <b>Stack</b></h2>
+                </div>
+                <br><span class="blade-sub">Equipped tools — current loadout</span>
+            </div>
+
+            <div class="tile-grid">
+                <div class="tile rv d1">
+                    <div class="tile-in">
+                        <img src="https://cdn.simpleicons.org/python/8ad8ff" alt="Python" loading="lazy" data-mono="Py">
+                        <span>Python</span>
+                    </div>
+                </div>
+                <div class="tile rv d2">
+                    <div class="tile-in">
+                        <img src="https://cdn.simpleicons.org/php/5b9bff" alt="PHP" loading="lazy" data-mono="php">
+                        <span>PHP</span>
+                    </div>
+                </div>
+                <div class="tile rv d3">
+                    <div class="tile-in">
+                        <img src="https://cdn.simpleicons.org/javascript/27e3ff" alt="JavaScript" loading="lazy"
+                            data-mono="JS">
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="tile rv d4">
+                    <div class="tile-in">
+                        <img src="https://cdn.simpleicons.org/html5/8ad8ff" alt="HTML and CSS" loading="lazy"
+                            data-mono="<>">
+                        <span>HTML / CSS</span>
+                    </div>
+                </div>
+                <div class="tile rv d1">
+                    <div class="tile-in">
+                        <img src="https://cdn.simpleicons.org/kotlin/27e3ff" alt="Kotlin" loading="lazy" data-mono="Kt">
+                        <span>Kotlin</span>
+                    </div>
+                </div>
+                <div class="tile rv d2">
+                    <div class="tile-in">
+                        <img src="https://cdn.simpleicons.org/mysql/5b9bff" alt="MySQL" loading="lazy" data-mono="SQL">
+                        <span>MySQL</span>
+                    </div>
+                </div>
+                <div class="tile rv d3">
+                    <div class="tile-in">
+                        <img src="https://cdn.simpleicons.org/flask/8ad8ff" alt="Flask" loading="lazy" data-mono="Fl">
+                        <span>Flask</span>
+                    </div>
+                </div>
+                <div class="tile rv d4">
+                    <div class="tile-in">
+                        <img src="https://cdn.simpleicons.org/scikitlearn/27e3ff" alt="scikit-learn" loading="lazy"
+                            data-mono="skl">
+                        <span>scikit-learn</span>
+                    </div>
+                </div>
+                <div class="tile rv d1">
+                    <div class="tile-in">
+                        <img src="https://cdn.simpleicons.org/pandas/5b9bff" alt="pandas" loading="lazy" data-mono="pd">
+                        <span>pandas</span>
+                    </div>
+                </div>
+                <div class="tile rv d2">
+                    <div class="tile-in">
+                        <img src="https://cdn.simpleicons.org/git/8ad8ff" alt="Git" loading="lazy" data-mono="Git">
+                        <span>Git</span>
+                    </div>
+                </div>
+                <div class="tile rv d3">
+                    <div class="tile-in">
+                        <img src="https://cdn.simpleicons.org/suricata/27e3ff" alt="Suricata" loading="lazy"
+                            data-mono="Su">
+                        <span>Suricata</span>
+                    </div>
+                </div>
+                <div class="tile rv d4">
+                    <div class="tile-in">
+                        <img src="https://cdn.simpleicons.org/react/5b9bff" alt="React Native" loading="lazy"
+                            data-mono="RN">
+                        <span>React Native</span>
+                    </div>
+                </div>
+                <div class="tile rv d1">
+                    <div class="tile-in">
+                        <img src="https://cdn.simpleicons.org/flutter/8ad8ff" alt="Flutter" loading="lazy"
+                            data-mono="Fl">
+                        <span>Flutter</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="domain-row rv">
+                <span class="domain-chip">Intrusion Detection</span>
+                <span class="domain-chip">Network Security</span>
+                <span class="domain-chip">Machine Learning</span>
+                <span class="domain-chip">Web &amp; Mobile Dev</span>
+            </div>
+        </section>
+
+        <!-- ================= PROJECTS ================= -->
+        <section id="projects">
+            <div class="blade-wrap rv">
+                <span class="echo" aria-hidden="true">Projects</span>
+                <div class="blade">
+                    <h2>Pro<b>jects</b></h2>
+                </div>
+                <br><span class="blade-sub">Summoned works — select to inspect</span>
+            </div>
+
+            <div class="proj-grid">
+                <article id="proj-mlids" class="glass proj-card rv d1">
+                    <div class="proj-art"><span class="pn">No. 01 — The World</span><span class="arcana">MLIDS</span>
+                    </div>
+                    <div class="proj-body">
+                        <h3>ML-Enhanced Intrusion Detection</h3>
+                        <p>Hybrid security platform combining Random Forest classification and Isolation Forest anomaly
+                            detection, with Genetic Algorithm threshold tuning, a real-time admin dashboard, and a
+                            built-in attack simulator with pre-built brute force, DDoS, and botnet presets.</p>
+                        <div class="tech-row"><span class="tech">Python</span><span class="tech">Flask</span><span
+                                class="tech">scikit-learn</span><span class="tech">Dash</span><span
+                                class="tech">SQLite</span></div>
+                        <div class="proj-actions">
+                            <a class="btn btn-blue" href="https://github.com/Mart271/ML-Enhanced-Intrusion-Detection"
+                                target="_blank" rel="noopener">GitHub</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="proj-ids" class="glass proj-card rv d2">
+                    <div class="proj-art"><span class="pn">No. 02 — Star</span><span class="arcana">IDS</span></div>
+                    <div class="proj-body">
+                        <h3>Intrusion Detection System</h3>
+                        <p>Network threat monitoring platform with role-based dashboards for admins and security
+                            analysts. Tracks, classifies, and resolves live alerts. Deployed and running on Render.</p>
+                        <div class="tech-row"><span class="tech">Python</span><span class="tech">Flask</span><span
+                                class="tech">JavaScript</span><span class="tech">HTML/CSS</span></div>
+                        <div class="proj-actions">
+                            <a class="btn btn-blue" href="https://github.com/Mart271/Intrusion-Detection-System"
+                                target="_blank" rel="noopener">GitHub</a>
+                            <a class="btn btn-ghost" href="https://intrusion-detection-system-86a4.onrender.com/"
+                                target="_blank" rel="noopener">Live Demo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="proj-vs" class="glass proj-card rv d3">
+                    <div class="proj-art"><span class="pn">No. 03 — Justice</span><span class="arcana">VS</span></div>
+                    <div class="proj-body">
+                        <h3>VoteSecure Voting System</h3>
+                        <p>Online voting platform with hashed ballots, one-vote enforcement, audit logging, and a live
+                            results dashboard.</p>
+                        <div class="tech-row"><span class="tech">PHP</span><span class="tech">MySQL</span><span
+                                class="tech">JS</span><span class="tech">Bcrypt</span></div>
+                        <div class="proj-actions">
+                            <a class="btn btn-blue" href="https://github.com/Mart271/VoteSecure-" target="_blank"
+                                rel="noopener">GitHub</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="glass proj-card rv d4">
+                    <div class="proj-art"><span class="pn">No. 04 — Hermit</span><span class="arcana">CES</span></div>
+                    <div class="proj-body">
+                        <h3>Cybercrime Legal Expert System</h3>
+                        <p>Browser-based forward-chaining inference engine that identifies cybercrime scenarios and maps
+                            them to Philippine law (RA 10175). Ten IF-THEN rules, five-question diagnostic — runs
+                            entirely client-side with no server required.</p>
+                        <div class="tech-row"><span class="tech">JavaScript</span><span class="tech">HTML/CSS</span>
+                            <span class="tech">Expert Systems</span>
+                        </div>
+                        <div class="proj-actions">
+                            <a class="btn btn-blue" href="https://github.com/Mart271/cybercrime-expert-system"
+                                target="_blank" rel="noopener">GitHub</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="glass proj-card rv d1">
+                    <div class="proj-art"><span class="pn">No. 05 — Magician</span><span class="arcana">SA</span></div>
+                    <div class="proj-body">
+                        <h3>Sentiment Analysis Web App</h3>
+                        <p>Full-stack web application with a Python NLP backend for sentiment scoring and a responsive
+                            JavaScript frontend for real-time text analysis.</p>
+                        <div class="tech-row"><span class="tech">Python</span><span class="tech">JavaScript</span><span
+                                class="tech">HTML/CSS</span></div>
+                        <div class="proj-actions">
+                            <a class="btn btn-blue" href="https://github.com/Mart271/sentiment-analysis" target="_blank"
+                                rel="noopener">GitHub</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="glass proj-card rv d2">
+                    <div class="proj-art"><span class="pn">No. 06 — Fortune</span><span class="arcana">BMS</span></div>
+                    <div class="proj-body">
+                        <h3>Bank Management System</h3>
+                        <p>Core banking simulation with account lifecycle management, transaction ledgers, and
+                            role-based access for tellers and admins.</p>
+                        <div class="tech-row"><span class="tech">Java</span><span class="tech">MySQL</span><span
+                                class="tech">JDBC</span></div>
+                        <div class="proj-actions">
+                            <span class="btn btn-ghost" style="opacity:0.45;cursor:default;">Academic — Private</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ================= EXPERIENCE ================= -->
+        <section id="experience">
+            <div class="blade-wrap rv">
+                <span class="echo" aria-hidden="true">Calendar</span>
+                <div class="blade">
+                    <h2>Exper<b>ience</b></h2>
+                </div>
+                <br><span class="blade-sub">Calendar log — days that mattered</span>
+            </div>
+
+            <div class="timeline" id="tl">
+                <div class="tl-progress" aria-hidden="true"></div>
+
+                <div class="tl-item rv">
+                    <div class="tl-date"><span class="big">2023 / 08</span><span class="dow">Mon</span></div>
+                    <div class="glass tl-card">
+                        <span class="kind">Academic Milestone</span>
+                        <h3>Began BS Computer Science</h3>
+                        <p>Enrolled at Lyceum of the Philippines University – Cavite. Four years to graduation
+                            (Expected May 2027) — and counting down by building things that actually work.</p>
+                    </div>
+                </div>
+
+                <div class="tl-item rv">
+                    <div class="tl-date"><span class="big">2024 / 01</span><span class="dow">Mon</span></div>
+                    <div class="glass tl-card">
+                        <span class="kind">Certification</span>
+                        <h3>Python Essentials 1 — Cisco</h3>
+                        <p>First formal certification. Completed Python Essentials 2 six months later (Jun 2024) —
+                            the foundation that every project since has run on.</p>
+                    </div>
+                </div>
+
+                <div class="tl-item rv">
+                    <div class="tl-date"><span class="big">2024 / 11</span><span class="dow">Fri</span></div>
+                    <div class="glass tl-card">
+                        <span class="kind">Major Project</span>
+                        <h3>Launched VoteSecure</h3>
+                        <p>Designed and built a secure online voting system — ballot integrity, audit trails, and
+                            defense against the obvious (and less obvious) attacks.</p>
+                        <a href="#proj-vs" class="btn btn-ghost"
+                            style="margin-top:12px;display:inline-block;font-size:.75rem;padding:4px 14px;">View Project
+                            ▸</a>
+                    </div>
+                </div>
+
+                <div class="tl-item rv">
+                    <div class="tl-date"><span class="big">2025 / 07</span><span class="dow">Tue</span></div>
+                    <div class="glass tl-card">
+                        <span class="kind">Leadership</span>
+                        <h3>Treasurer — CITCS Student Government</h3>
+                        <p>Elected treasurer of the College of Information Technology and Computer Science student
+                            council at LPU Cavite. Managed departmental funds, maintained financial records, and
+                            coordinated academic and student events within budget.</p>
+                    </div>
+                </div>
+
+                <div class="tl-item rv">
+                    <div class="tl-date"><span class="big">2025 / 12</span><span class="dow">Mon</span></div>
+                    <div class="glass tl-card">
+                        <span class="kind">Certification</span>
+                        <h3>IoT Bootcamp</h3>
+                        <p>Hands-on IoT development training with ACube Technologies and LPU Cavite — sensors,
+                            embedded systems, and real hardware in one intensive sprint.</p>
+                    </div>
+                </div>
+
+                <div class="tl-item rv">
+                    <div class="tl-date"><span class="big">2026 / 05</span><span class="dow">Fri</span></div>
+                    <div class="glass tl-card">
+                        <span class="kind">Major Project</span>
+                        <h3>Shipped ML-Enhanced IDS</h3>
+                        <p>Built a hybrid intrusion detection pipeline trained on CICIDS2017 — Random Forest
+                            classification, Isolation Forest anomaly detection, and a Genetic Algorithm that cut
+                            false positives by ~30% over the rule-based baseline.</p>
+                        <a href="#proj-mlids" class="btn btn-ghost"
+                            style="margin-top:12px;display:inline-block;font-size:.75rem;padding:4px 14px;">View Project
+                            ▸</a>
+                    </div>
+                </div>
+
+                <div class="tl-item rv">
+                    <div class="tl-date"><span class="big">2026 / 06</span><span class="dow">Mon</span></div>
+                    <div class="glass tl-card">
+                        <span class="kind">Now</span>
+                        <h3>Final Year — Open to Opportunities</h3>
+                        <p>Sharpening security skills, polishing the portfolio you're reading, and looking for the
+                            next challenge.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CERTIFICATIONS ================= -->
+        <section id="certifications">
+            <div class="blade-wrap rv">
+                <span class="echo" aria-hidden="true">Records</span>
+                <div class="blade">
+                    <h2>Certifi<b>cations</b></h2>
+                </div>
+                <br><span class="blade-sub">Proof of training — verified records</span>
+            </div>
+
+            <div class="cert-list">
+                <div class="glass cert rv d1"><span class="medal">S</span>
+                    <div>
+                        <h3>Introduction to Cybersecurity</h3><span>Cisco — Apr 2026</span>
+                        <a href="https://www.credly.com/badges/e8a25e40-a4e2-4b33-83a7-74b7d25ea15b" target="_blank"
+                            rel="noopener"
+                            style="display:inline-block;margin-top:6px;font-size:.7rem;color:#27e3ff;letter-spacing:.05em;">View
+                            Badge ▸</a>
+                    </div>
+                </div>
+                <div class="glass cert rv d2"><span class="medal">A</span>
+                    <div>
+                        <h3>Introduction to Modern AI</h3><span>Cisco — Feb 2026</span>
+                        <a href="https://www.credly.com/badges/3096f7ee-89d4-4b03-8270-ac61a0fd9144" target="_blank"
+                            rel="noopener"
+                            style="display:inline-block;margin-top:6px;font-size:.7rem;color:#27e3ff;letter-spacing:.05em;">View
+                            Badge ▸</a>
+                    </div>
+                </div>
+                <div class="glass cert rv d3"><span class="medal">A</span>
+                    <div>
+                        <h3>Introduction to Networking Basics</h3><span>Cisco — May 2026</span>
+                    </div>
+                </div>
+                <div class="glass cert rv d4"><span class="medal">A</span>
+                    <div>
+                        <h3>IoT Bootcamp</h3><span>ACube Technologies / LPU Cavite — Dec 2025</span>
+                    </div>
+                </div>
+                <div class="glass cert rv d1"><span class="medal">B</span>
+                    <div>
+                        <h3>Python Essentials 1 &amp; 2</h3><span>Cisco — Jan &amp; Jun 2024</span>
+                        <a href="https://www.credly.com/badges/5cddc501-91dc-478f-afb8-51bb5ffb37c9" target="_blank"
+                            rel="noopener"
+                            style="display:inline-block;margin-top:6px;font-size:.7rem;color:#27e3ff;letter-spacing:.05em;">Badge
+                            1 ▸</a>
+                        <a href="https://www.credly.com/badges/3f68d0b4-bfa3-42a4-a9d1-7013917eb3f8" target="_blank"
+                            rel="noopener"
+                            style="display:inline-block;margin-top:6px;margin-left:10px;font-size:.7rem;color:#27e3ff;letter-spacing:.05em;">Badge
+                            2 ▸</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="domain-row rv" style="margin-top:2rem;">
+                <a class="domain-chip" href="https://www.credly.com/users/mark-tagab" target="_blank"
+                    rel="noopener">Verify on Credly ▸</a>
+                <a class="domain-chip" href="https://www.credly.com/users/mark-rainier-tagab" target="_blank"
+                    rel="noopener">Verify on Credly ▸</a>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT ================= -->
+        <section id="contact">
+            <div class="blade-wrap rv">
+                <span class="echo" aria-hidden="true">Contact</span>
+                <div class="blade">
+                    <h2>Con<b>tact</b></h2>
+                </div>
+                <br><span class="blade-sub">Command menu — choose your link</span>
+            </div>
+
+            <div class="cmd-menu">
+                <a class="glass cmd rv d1" href="mailto:marktagab0@gmail.com">
+                    <span class="wedge" aria-hidden="true"></span>
+                    <span class="ci"><i>✉</i></span>
+                    <span class="ct">
+                        <h3>Email</h3><span>marktagab0@gmail.com</span>
+                    </span>
+                    <span class="go">▸</span>
+                </a>
+                <a class="glass cmd rv d2" href="https://www.linkedin.com/in/mark-tagab-25799218b/" target="_blank"
+                    rel="noopener">
+                    <span class="wedge" aria-hidden="true"></span>
+                    <span class="ci"><i>in</i></span>
+                    <span class="ct">
+                        <h3>LinkedIn</h3><span>Connect professionally</span>
+                    </span>
+                    <span class="go">▸</span>
+                </a>
+                <a class="glass cmd rv d3" href="https://github.com/Mart271" target="_blank" rel="noopener">
+                    <span class="wedge" aria-hidden="true"></span>
+                    <span class="ci"><i>&lt;/&gt;</i></span>
+                    <span class="ct">
+                        <h3>GitHub</h3><span>Inspect the source</span>
+                    </span>
+                    <span class="go">▸</span>
+                </a>
+                <a class="glass cmd rv d4" href="Mark_Rainier_Tagab_Resume.pdf" download>
+                    <span class="wedge" aria-hidden="true"></span>
+                    <span class="ci"><i>▼</i></span>
+                    <span class="ct">
+                        <h3>Resume</h3><span>Download PDF</span>
+                    </span>
+                    <span class="go">▸</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        © 2026 <b>Mark Rainier Tagab</b>
+    </footer>
+
+    <script src="app.js" defer></script>
+</body>
+
+</html>
